@@ -1,0 +1,4 @@
+Vitamin,50
+Syringes,6
+Amoxicillin,24
+Paracetamol,4
