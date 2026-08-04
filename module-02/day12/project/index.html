@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Reserve a table at Ethiopian Taste Restaurant.">
+        <title>Ethiopian Taste | Reservation</title>
+    </head>
+    <body>
+        <header>
+            <h1>Ethiopian Taste Restaurant</h1>
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html">Reservation</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <h2>Reservation Form</h2>
+                <form action="#" method="post">
+
+                    <label for="name">Full Name</label><br>
+                    <input type="text" id="name" name="name" required>
+                    <br><br>
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email" name="email" required>                        
+                    <br><br>
+                    <label for="phone">Phone Number</label><br> 
+                    <input type="tel" id="phone" name="phone" placeholder="+251912345678" pattern="^\+2519\d{8}$" required> 
+                    <br><br>
+                    <label for="guests">Number of Guests</label><br>
+                    <input type="number" id="guests" name="guests" min="1" max="20" required>
+                    <br><br>
+                    <button type="submit">Reserve</button>
+                </form>
+            </section>
+
+            <hr>
+            <section>
+                <h2>Menu Prices (ETB)</h2>
+                <table border="1">
+                    <caption>Ethiopian Taste Restaurant Menu</caption>
+
+                    <thead>
+                        <tr>
+                        <th scope="col">Dish</th>
+                        <th scope="col">Price (ETB)</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                        <td>Doro Wat</td>
+                        <td>350</td>
+                        </tr>
+
+                        <tr>
+                        <td>Tibs</td>
+                        <td>320</td>
+                        </tr>
+
+                        <tr>
+                        <td>Kitfo</td>
+                        <td>380</td>
+                        </tr>
+
+                        <tr>
+                        <td>Shiro</td>
+                        <td>180</td>
+                        </tr>
+
+                        <tr>
+                        <td>Firfir</td>
+                        <td>170</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2>Restaurant Gallery</h2>
+
+                <figure>
+                    <img src="image\Doro_Wat.jpg" alt="Ethiopian cultural food Called Doro wat" width="500">
+                    <figcaption>Traditional Ethiopian cuisine served with injera.</figcaption>
+                </figure>
+                <h3>Restaurant Location</h3>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11370.72615662126!2d38.774288119286666!3d8.994486407045331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8506e6796223%3A0x68a12af3ec289ea2!2zMjAwMCBIYWJlc2hhIGN1bHR1cmFsIHJlc3RhdXJhbnQgfCBCb2xlIEF0bGFzIHwgMjAwMCDhiIDhiaDhiLsg4Yuo4Ymj4YiF4YiNIOGIrOGIteGJtuGIq-GKleGJtSB8IOGJpuGIjCDhiqDhibXhiIvhiLU!5e1!3m2!1sen!2set!4v1785875667346!5m2!1sen!2set" 
+                    width="600" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Ethiopian Taste Restaurant</p>
+        </footer>
+    </body>
+</html>
