@@ -1,0 +1,108 @@
+/* #1 */
+:root {
+  --primary-color: #0066cc;
+  --secondary-color: #ffffff;
+  --spacing: 16px;
+  --font-stack: Arial, Helvetica, sans-serif;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: var(--spacing);
+  font-family: var(--font-stack);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* #2 */
+.card {
+  width: 300px;
+  padding: 24px;
+  border: 2px solid black;
+  box-sizing: content-box;
+}
+/*
+.card {
+  width: 300px;
+  padding: 24px;
+  border: 2px solid black;
+  box-sizing: border-box;
+} */
+
+/* #3 */
+p {
+  color: blue;
+}
+
+.paragraph {
+  color: green;
+}
+
+#text {
+  color: red; /* Because ID > Class > Element */
+}
+
+/* #4 */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: #008000;
+  color: white;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* #5 */
+.colors {
+    display: flex;
+    gap: 100px;
+}
+
+.colors div {
+    width: 850px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 10px;
+}
+
+/* #3498db */
+.blue {
+    background-color: rgb(52, 152, 219);
+}
+
+.blue:hover {
+    background-color: hsl(204, 70%, 70%);
+}
+
+/* #e74c3c */
+.red {
+    background-color: rgb(231, 76, 60);
+}
+
+.red:hover {
+    background-color: hsl(6, 78%, 75%);
+}
+
+/* #2ecc71 */
+.green {
+    background-color: rgb(46, 204, 113);
+}
+
+.green:hover {
+    background-color: hsl(145, 63%, 70%);
+}
