@@ -1,0 +1,68 @@
+:root {
+    --brand: hsl(212, 68%, 33%);
+    --brand-hover: hsl(212, 68%, 45%);
+    --space: 16px;
+    --radius: 10px;
+}
+
+* { 
+    box-sizing: border-box; 
+}
+
+img{
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align:center;
+}
+
+.category {
+    font-size: 18px;
+    font-weight: 500;
+    text-align:center;
+}
+
+.description {
+    font-size: 15px;
+}
+
+.category::before {
+    content: "☕ ";
+}
+
+body { 
+    font-family: "Inter", sans-serif; line-height: 1.6; 
+}
+    
+.card {
+    max-width: 360px;
+    margin: 40px auto;
+    padding: var(--space);
+    border: 1px solid #E2E8F0;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.btn{
+    height: 30px;
+    width: 100px;
+    background: var(--brand);
+    color:white;
+    border-radius: var(--radius);
+    border: 0;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn:hover { 
+    background: var(--brand-hover);
+}
+
+.btn:focus {
+    outline: 2px solid hsl(212, 68%, 70%);
+}
