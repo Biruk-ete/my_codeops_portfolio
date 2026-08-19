@@ -7,26 +7,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Addis Eats</div>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">Addis Eats</div>
 
-            <div class="nav-search">
-                <input id="search" type="text" placeholder="Search">
+                <div class="nav-search">
+                    <input id="search" type="text" placeholder="Search dishes…">
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
 
     <main>
         <section id="menu">
-            <!-- contents -->
+            <!-- menu data appers here -->
         </section>
 
         <aside id="cart">
             <h2>Your Order</h2>
             <div id="cart-items">
-
+                <!-- cart items appers here -->
             </div>
             <div id="cart-total">
                 <span>Total:</span>
@@ -35,6 +37,41 @@
             <button id="checkout-btn">Place Order</button>
         </aside>
     </main>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2>Checkout</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label for="customer-name">Full Name *</label>
+                    <input type="text" id="customer-name" required placeholder="Biruk Abera">
+                </div>
+                <div class="form-group">
+                    <label for="customer-phone">Phone Number *</label>
+                    <input type="tel" id="customer-phone" required placeholder="0911 554 567">
+                </div>
+                <div class="form-group">
+                    <label for="customer-address">Delivery Address *</label>
+                    <textarea id="customer-address" required placeholder="Bole, Addis Ababa, House No"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="special-instructions">Special Instructions</label>
+                    <textarea id="special-instructions" placeholder="Any special requests..."></textarea>
+                </div>
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="order-summary-items"></div>
+                    <div class="total-summary">
+                        <span>Total:</span>
+                        <span id="order-total">0.00 ETB</span>
+                    </div>
+                </div>
+                <button type="submit" class="submit-order-btn">Place Order</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -59,6 +96,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="menu.js"></script>
 </body>
 </html>
