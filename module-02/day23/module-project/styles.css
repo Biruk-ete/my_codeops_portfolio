@@ -280,7 +280,7 @@ main {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 200;
     left: 0;
     top: 0;
     width: 100%;
@@ -291,7 +291,7 @@ main {
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: white;
     margin: 50px auto;
     padding: 30px;
     max-width: 500px;

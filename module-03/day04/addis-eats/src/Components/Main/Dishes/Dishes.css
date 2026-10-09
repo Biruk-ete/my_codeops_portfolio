@@ -1,0 +1,119 @@
+/* Grid - matches module's map example */
+.menu-grid {
+    background-color:#1a1a1a;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.dish-card {
+    background: white;
+    border: 1px solid #e8ddd0;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.dish-card h3 {
+    color: #1a1a1a;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.dish-card p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin: 8px 0;
+}
+
+.category-badge {
+    display: inline-block;
+    background: #e8f5ed;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-top: 8px;
+}
+
+.spicy-badge {
+    display: inline-block;
+    background: #fee2e2;
+    color: rgb(210, 0, 0);
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    margin-left: 8px;
+}
+
+body{
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.cartCounter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.btn {
+    background: #1a2433;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 44px;
+    height: 44px;
+}
+
+.btn-add {
+    flex: 1;
+    /* min-width: 100px; */
+}
+
+.btn-decrement {
+    flex: 1;
+    background: #dc3545;
+    font-size: 20px;
+    /* padding: 0; */
+    /* width: 80px; */
+}
+
+.btn-decrement:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+.btn-add:hover {
+    background: #2a3a4f;
+    transform: scale(1.02);
+}
+
+.count-display {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a2433;
+    min-width: 30px;
+    text-align: center;
+    border:1px solid #1a2433;
+    border-radius:8px;
+    height:44px;
+    display:flex;
+    flex:1;
+    align-items:center;
+    justify-content:center;
+}
+
+.count-display {
+    animation: pop 0.2s ease;
+}
+

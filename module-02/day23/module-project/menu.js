@@ -52,7 +52,7 @@ async function loadMenu() {
         console.warn("Using fallback menu data:", err.message);
         state.dishes = fallbackMenuData;
         menuEl.innerHTML = '<p class="loading">Using offline menu</p>';
-        setTimeout(render, 500);
+        setTimeout(render, 1000);
     }
 }
 
@@ -136,16 +136,16 @@ function loadCart() {
 // Modal Functions
 function openModal() {
     if (state.cart.length === 0) return;
-    
+
     const total = state.cart.reduce((sum, i) => sum + i.price * i.qty, 0);
-    
+
     orderSummaryItems.innerHTML = state.cart.map(item => `
         <div class="summary-item">
             <span>${item.name} x ${item.qty}</span>
             <span>${item.price * item.qty} ETB</span>
         </div>
     `).join('');
-    
+
     orderTotal.textContent = `${total} ETB`;
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
@@ -160,19 +160,19 @@ function closeModal() {
 // Handle checkout form submission
 function handleCheckout(e) {
     e.preventDefault();
-    
+
     const name = document.getElementById('customer-name').value.trim();
     const phone = document.getElementById('customer-phone').value.trim();
     const address = document.getElementById('customer-address').value.trim();
     const instructions = document.getElementById('special-instructions').value.trim();
-    
+
     if (!name || !phone || !address) {
         alert('Please fill in all required fields (Name, Phone, and Address)');
         return;
     }
-    
+
     const total = state.cart.reduce((sum, i) => sum + i.price * i.qty, 0);
-    
+
     const order = {
         customer: { name, phone, address, instructions },
         items: state.cart.map(item => ({ ...item })),
@@ -183,9 +183,9 @@ function handleCheckout(e) {
     const orders = JSON.parse(localStorage.getItem('addisEatsOrders') || '[]');
     orders.push(order);
     localStorage.setItem('addisEatsOrders', JSON.stringify(orders));
-    
+
     alert(`Order placed successfully!\n\nCustomer: ${name}\nTotal: ${total} ETB\n\nThank you for choosing Addis Eats!`);
-    
+
     state.cart = [];
     save();
     render();
@@ -208,21 +208,21 @@ searchEl.addEventListener("input", (e) => {
 // Add to cart
 menuEl.addEventListener("click", (e) => {
     if (!e.target.classList.contains("add-btn")) return;
-    
+
     const dishEl = e.target.closest(".dish");
     if (!dishEl) return;
-    
+
     const id = Number(dishEl.dataset.id);
     const dish = state.dishes.find(d => d.id === id);
     if (!dish) return;
-    
+
     const line = state.cart.find(i => i.id === id);
     if (line) {
         line.qty++;
     } else {
         state.cart.push({ ...dish, qty: 1 });
     }
-    
+
     save();
     render();
 });
@@ -248,8 +248,8 @@ closeModalBtn.addEventListener('click', closeModal);
 checkoutForm.addEventListener('submit', handleCheckout);
 
 async function init() {
-    loadCart();    
-    await loadMenu(); 
+    loadCart();
+    await loadMenu();
 }
 
 init();
