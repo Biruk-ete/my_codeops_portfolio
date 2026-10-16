@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import login_page from '../Assets/login_page.png';
+import login_page from '../Assets/Login_page.png';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import './Login.css';
