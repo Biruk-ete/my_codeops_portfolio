@@ -1,0 +1,44 @@
+.orders-wrapper {
+  padding: 60px;
+  background-color: #fff8f6;
+  min-height: 80vh;
+}
+.orders-wrapper h1 {
+  font-family: "Playfair Display", serif;
+  color: #7a1401;
+  margin-bottom: 24px;
+}
+.order-card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #dfbfb9;
+  max-width: 600px;
+}
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+.status {
+  color: #184530;
+  background: #d9f0dd;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+.total {
+  font-weight: bold;
+  margin-top: 16px;
+  color: #7a1401;
+}
+.btn-reorder {
+  display: inline-block;
+  margin-top: 16px;
+  background: #7a1401;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}

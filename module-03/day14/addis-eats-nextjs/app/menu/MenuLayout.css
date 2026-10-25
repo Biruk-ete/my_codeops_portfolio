@@ -1,0 +1,10 @@
+.menu-layout-wrapper {
+  display: flex;
+  min-height: 80vh;
+  background-color: #fff8f6;
+}
+
+.menu-content-wrapper {
+  flex-grow: 1;
+  padding: 60px;
+}

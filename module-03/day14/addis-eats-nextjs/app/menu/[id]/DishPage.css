@@ -1,0 +1,11 @@
+.dish-page-title {
+  text-transform: capitalize;
+  font-family: "Playfair Display", serif;
+  color: #7a1401;
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.dish-page-desc {
+  color: #58413d;
+}

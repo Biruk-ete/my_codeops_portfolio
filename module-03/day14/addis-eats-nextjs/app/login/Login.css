@@ -1,0 +1,49 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #fff1eb;
+  min-height: 80vh;
+}
+.login-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid rgba(223, 191, 185, 0.4);
+}
+.login-card h1 {
+  font-family: "Playfair Display", serif;
+  color: #7a1401;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+.form-input {
+  padding: 14px;
+  border: 1px solid #dfbfb9;
+  border-radius: 8px;
+  font-family: inherit;
+}
+.btn-submit {
+  background: #7a1401;
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.login-prompt {
+  margin-top: 24px;
+  text-align: center;
+  color: #58413d;
+}
+.login-prompt a {
+  color: #7a1401;
+  font-weight: bold;
+}
