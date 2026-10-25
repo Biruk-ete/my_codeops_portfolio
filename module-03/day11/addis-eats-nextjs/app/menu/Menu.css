@@ -1,0 +1,39 @@
+.menu-layout {
+  display: flex;
+  min-height: 80vh;
+  background-color: #fff8f6;
+}
+.menu-content {
+  flex-grow: 1;
+  padding: 60px;
+}
+.menu-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  color: #7a1401;
+  margin-bottom: 10px;
+}
+.menu-content p {
+  color: #58413d;
+  margin-bottom: 30px;
+}
+.dish-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.dish-list a {
+  font-size: 18px;
+  color: #7e5700;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #fceae4;
+  padding: 16px;
+  border-radius: 8px;
+  display: block;
+}
+.dish-list a:hover {
+  background-color: #ebd5cc;
+}
