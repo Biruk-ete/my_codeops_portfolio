@@ -1,0 +1,14 @@
+.checkout-wrapper {
+  padding: 60px;
+}
+
+.checkout-title {
+  font-family: "Playfair Display", serif;
+  color: #7a1401;
+  font-size: 36px;
+}
+
+.checkout-desc {
+  margin-top: 16px;
+  color: #58413d;
+}
