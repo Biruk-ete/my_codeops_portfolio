@@ -1,0 +1,107 @@
+.dish-detail-container {
+  max-width: 1000px;
+}
+
+.back-link {
+  display: inline-block;
+  color: #8c716b;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.dish-detail-card {
+  display: flex;
+  gap: 40px;
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(223, 191, 185, 0.4);
+}
+
+.dish-image-col {
+  flex: 1;
+}
+
+.dish-main-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.dish-info-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dish-tag {
+  background: #fceae4;
+  color: #7e5700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  width: fit-content;
+  margin-bottom: 16px;
+}
+
+.dish-info-col h1 {
+  font-family: "Playfair Display", serif;
+  color: #221a16;
+  font-size: 42px;
+  margin: 0 0 12px 0;
+}
+
+.dish-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: #7a1401;
+  margin-bottom: 24px;
+}
+
+.dish-description {
+  font-size: 16px;
+  color: #58413d;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.btn-add-large {
+  background: #7a1401;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+}
+
+/* ✅ Do NOT add padding or max-width to .dish-detail-container, the Layout handles it */
+.dish-detail-container {
+  width: 100%;
+}
+
+.back-link {
+  display: inline-block;
+  color: #8c716b;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.dish-detail-card {
+  display: flex;
+  gap: 40px;
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(223, 191, 185, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+/* ... rest of your dish card CSS (image, tag, title, price, etc) ... */
