@@ -1,0 +1,97 @@
+/* --- Layout --- */
+.register-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #fff1eb;
+  min-height: 80vh;
+}
+
+.register-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 450px; /* Slightly narrower looks better */
+  border: 1px solid rgba(223, 191, 185, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  height: fit-content;
+}
+
+/* --- Typography --- */
+.register-card h1 {
+  font-family: "Playfair Display", serif;
+  color: #7a1401;
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 32px;
+}
+
+.register-subtitle {
+  font-size: 14px;
+  color: #8c716b;
+  margin-bottom: 32px;
+}
+
+/* --- Form Elements --- */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-input {
+  padding: 16px;
+  border: 1px solid #dfbfb9;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  color: #221a16;
+  background-color: #fdfbf9;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-color: #7a1401;
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+}
+
+/* --- Button --- */
+.btn-submit {
+  background: #7a1401;
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background: #5a0f01;
+}
+
+/* --- Prompt Link --- */
+.login-prompt {
+  margin-top: 24px;
+  text-align: center;
+  color: #58413d;
+  font-size: 14px;
+}
+
+.login-prompt a {
+  color: #7a1401;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,19 @@
+.order-status-card {
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid #dfbfb9;
+  max-width: 400px;
+}
+.order-status-card p {
+  margin-bottom: 12px;
+  color: #58413d;
+  font-size: 16px;
+}
+.last-updated {
+  font-size: 12px;
+  color: #8c716b;
+  margin-top: 24px;
+  border-top: 1px solid #dfbfb9;
+  padding-top: 12px;
+}
