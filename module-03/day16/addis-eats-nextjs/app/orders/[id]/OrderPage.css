@@ -1,0 +1,11 @@
+.order-page-wrapper {
+  padding: 60px;
+  background-color: #fff8f6;
+  min-height: 80vh;
+}
+.order-title {
+  font-family: "Playfair Display", serif;
+  color: #7a1401;
+  font-size: 36px;
+  margin-bottom: 24px;
+}
