@@ -1,0 +1,25 @@
+.track-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px;
+}
+.map-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+@media (min-width: 768px) {
+  .map-section {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+.map-text-fallback {
+  background: #f8fafc;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+.map-text-fallback h3 {
+  margin-top: 0;
+}
