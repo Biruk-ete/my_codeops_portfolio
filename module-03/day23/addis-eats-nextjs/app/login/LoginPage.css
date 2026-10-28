@@ -1,0 +1,58 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+  background-color: #fff1eb;
+  min-height: 80vh;
+}
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #dfbfb9;
+}
+.login-card h1 {
+  font-family: "Playfair Display", serif;
+  color: #7a1401;
+  text-align: center;
+}
+.login-card p {
+  text-align: center;
+  color: #8c716b;
+  margin-bottom: 24px;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.login-form input {
+  padding: 14px;
+  border: 1px solid #dfbfb9;
+  border-radius: 8px;
+  outline: none;
+}
+.btn-submit {
+  background: #7a1401;
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.error-msg {
+  color: #d32f2f;
+  font-size: 14px;
+  text-align: center;
+}
+.register-link {
+  margin-top: 24px;
+  font-size: 14px;
+}
+.register-link a {
+  color: #7a1401;
+  font-weight: bold;
+}

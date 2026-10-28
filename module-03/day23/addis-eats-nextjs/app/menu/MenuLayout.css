@@ -1,0 +1,12 @@
+.menu-layout-wrapper {
+  display: flex;
+  min-height: 80vh;
+  background-color: #fff8f6;
+}
+
+/* ✅ Remove padding from the wrapper, add it to the children */
+.menu-content-wrapper {
+  flex-grow: 1;
+  padding: 40px 60px;
+  width: 100%;
+}

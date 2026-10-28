@@ -1,0 +1,61 @@
+/* --- Filter Bar --- */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(223, 191, 185, 0.4);
+}
+
+.filter-label {
+  font-weight: 700;
+  color: #8c716b;
+  font-size: 14px;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid #dfbfb9;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #58413d;
+  transition: all 0.2s;
+}
+
+.filter-btn.active {
+  background: #7a1401;
+  color: white;
+  border-color: #7a1401;
+}
+
+/* --- The 4-Column Grid --- */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1100px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on small tablets */
+  }
+}
+
+@media (max-width: 500px) {
+  .menu-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+}

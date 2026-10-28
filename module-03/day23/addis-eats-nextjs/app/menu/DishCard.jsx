@@ -1,0 +1,49 @@
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import './DishCard.css';
+
+export default function DishCard({ dish, onAdd, priority }) {
+    return (
+        <div className="menu-card">
+            <div className="menu-card-image-wrapper">
+                <Link href={`/menu/${dish.id}`} className="menu-card-image-link">
+                    <Image
+                        src={dish.image}
+                        alt={dish.name}
+                        width={400}
+                        height={300}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        className="menu-card-image"
+                        loading={priority ? "eager" : "lazy"}
+                    />
+                </Link>
+                {dish.tag && <span className="menu-card-tag">{dish.tag}</span>}
+            </div>
+
+            <div className="menu-card-content">
+                <Link href={`/menu/${dish.id}`} className="menu-card-title-link">
+                    <h3 className="menu-card-title">{dish.name}</h3>
+                </Link>
+
+                <div className="menu-card-spice">
+                    <span>{dish.spiceLevel}</span>
+                </div>
+
+                <div className="menu-card-footer">
+                    <span className="menu-card-price">
+                        ETB {dish.price}
+                    </span>
+                    <button
+                        className="menu-card-add-btn"
+                        onClick={() => onAdd(dish)}
+                        aria-label={`Add ${dish.name} to cart`}
+                    >
+                        + Add
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}

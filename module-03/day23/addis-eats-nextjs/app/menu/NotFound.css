@@ -1,0 +1,57 @@
+.notfound-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #fff1eb;
+  padding: 40px 20px;
+}
+
+.notfound-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  border: 1px solid rgba(223, 191, 185, 0.4);
+  box-shadow: 0 10px 40px rgba(122, 20, 1, 0.05);
+}
+
+.notfound-title {
+  font-family: "Playfair Display", serif;
+  font-size: 80px;
+  color: #7a1401;
+  line-height: 1;
+  margin: 0 0 10px 0;
+}
+
+.notfound-subtitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7e5700;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.notfound-desc {
+  color: #58413d;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.notfound-btn {
+  display: inline-block;
+  background-color: #7a1401;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.notfound-btn:hover {
+  background-color: #5a0f01;
+}

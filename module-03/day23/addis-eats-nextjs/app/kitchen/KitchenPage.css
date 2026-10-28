@@ -1,0 +1,197 @@
+/* --- Layout & Base --- */
+.kitchen-wrapper {
+  padding: 40px 60px;
+  background-color: #1a1a1a; /* Dark background for kitchen screens */
+  min-height: 90vh;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #ffffff;
+}
+
+/* --- Header Section --- */
+.kitchen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #333;
+}
+
+.kitchen-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #7e5700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.kitchen-header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  color: #fceae4; /* Warm cream text */
+  margin: 0 0 8px 0;
+}
+
+.kitchen-header p {
+  color: #8c716b;
+  font-size: 14px;
+  margin: 0;
+}
+
+.kitchen-header p strong {
+  color: #ffffff;
+}
+
+/* --- Stats Box --- */
+.kitchen-stats {
+  display: flex;
+  gap: 16px;
+}
+
+.stat-box {
+  background: #2a2a2a;
+  padding: 16px 32px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #444;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fdbe50; /* Gold */
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- Order Grid --- */
+.kitchen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+/* --- Order Ticket --- */
+.order-ticket {
+  background: #ffffff;
+  color: #221a16;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-header {
+  background: #7a1401; /* Brand Red */
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticket-id {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.ticket-time {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.ticket-body {
+  padding: 20px 16px;
+  flex-grow: 1;
+}
+
+.ticket-body p {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #58413d;
+  line-height: 1.4;
+}
+
+.ticket-body p strong {
+  color: #221a16;
+}
+
+.ticket-footer {
+  padding: 16px;
+  border-top: 1px dashed #dfbfb9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fdfbf9;
+}
+
+/* --- Status Badges --- */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-order-received {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+/* --- Action Button --- */
+.btn-complete {
+  background: #184530; /* Dark Green */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-complete:hover {
+  background: #0f2e1f;
+}
+
+/* --- Empty State --- */
+.empty-kitchen {
+  background: #2a2a2a;
+  border: 1px dashed #444;
+  border-radius: 12px;
+  padding: 80px 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+.empty-kitchen h2 {
+  font-family: "Playfair Display", serif;
+  color: #fceae4;
+  margin: 0 0 8px 0;
+}
+
+.empty-kitchen p {
+  color: #888;
+  margin: 0;
+}
