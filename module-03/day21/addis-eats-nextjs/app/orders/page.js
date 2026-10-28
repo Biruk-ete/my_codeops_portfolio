@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { getSession } from '@/lib/session';
 import { db } from '@/lib/db';
-import './OrdersPage.css'; // Assuming you keep your CSS file
+import './OrdersPage.css';
 
 export default async function OrdersPage({ searchParams }) {
     const user = await getSession();
@@ -11,26 +11,26 @@ export default async function OrdersPage({ searchParams }) {
         redirect('/login?next=/orders');
     }
 
-    // 1. Get state from URL (with defaults)
-    const page = Number(searchParams.page ?? 1);
-    const sort = searchParams.sort ?? 'createdAt';
-    const dir = searchParams.dir ?? 'desc';
+    const resolvedParams = await searchParams;
+    const page = Number(resolvedParams.page ?? 1);
+    const sort = resolvedParams.sort ?? 'createdAt';
+    const dir = resolvedParams.dir ?? 'desc';
     const take = 20;
     const skip = (page - 1) * take;
 
-    // 2. Let the database handle paging and sorting (Twenty rows, not four thousand)
-    const userOrders = await db.order.findMany({
-        where: { userId: user.id },
-        orderBy: { [sort]: dir },
-        skip: skip,
-        take: take,
+    const allOrders = await db.order.findMany();
+    const userOrdersList = allOrders.filter(order => order.userId === user.id);
+
+    userOrdersList.sort((a, b) => {
+        if (a[sort] < b[sort]) return dir === 'asc' ? -1 : 1;
+        if (a[sort] > b[sort]) return dir === 'asc' ? 1 : -1;
+        return 0;
     });
 
-    // Need the total count for pagination
-    const totalOrders = await db.order.count({ where: { userId: user.id } });
+    const totalOrders = userOrdersList.length;
     const totalPages = Math.ceil(totalOrders / take);
+    const userOrders = userOrdersList.slice(skip, skip + take);
 
-    // Reusable ETB formatter
     const etb = (v) =>
         new Intl.NumberFormat('en-ET', {
             style: 'currency',
@@ -38,7 +38,6 @@ export default async function OrdersPage({ searchParams }) {
             maximumFractionDigits: 0,
         }).format(v);
 
-    // Helper to build sort links
     const getSortLink = (column) => {
         const newDir = sort === column && dir === 'asc' ? 'desc' : 'asc';
         return `/orders?sort=${column}&dir=${newDir}&page=1`;
@@ -104,7 +103,6 @@ export default async function OrdersPage({ searchParams }) {
                         </table>
                     </div>
 
-                    {/* Paging using links, not buttons */}
                     <nav className="pagination" aria-label="Pagination">
                         {page > 1 && (
                             <Link href={`/orders?page=${page - 1}&sort=${sort}&dir=${dir}`}>
