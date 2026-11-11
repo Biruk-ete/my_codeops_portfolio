@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1001,
+    "customerName": "Abebe Kebede",
+    "area": "Bole",
+    "status": "pending",
+    "dishes": [
+      {
+        "name": "Doro Wat",
+        "priceSantim": 24000
+      },
+      {
+        "name": "Injera",
+        "priceSantim": 3000
+      }
+    ],
+    "telebirrPhone": "0912345678",
+    "totalSantim": 27000
+  },
+  {
+    "id": 1002,
+    "customerName": "Hana Tesfaye",
+    "area": "Kazanchis",
+    "status": "confirmed",
+    "dishes": [
+      {
+        "name": "Shiro",
+        "priceSantim": 12000
+      }
+    ],
+    "totalSantim": 12000
+  },
+  {
+    "id": 1003,
+    "customerName": "Dawit Alemu",
+    "area": "Piassa",
+    "status": "preparing",
+    "dishes": [
+      {
+        "name": "Special Tibs",
+        "priceSantim": 45000
+      },
+      {
+        "name": "Injera",
+        "priceSantim": 3000
+      }
+    ],
+    "telebirrPhone": "0923456789",
+    "totalSantim": 48000
+  },
+  {
+    "id": 1004,
+    "customerName": "Marta Bekele",
+    "area": "Mexico",
+    "status": "delivered",
+    "dishes": [
+      {
+        "name": "Kitfo",
+        "priceSantim": 60000
+      }
+    ],
+    "totalSantim": 60000
+  }
+]
