@@ -1,0 +1,61 @@
+### Get all restaurants
+GET http://localhost:3000/api/restaurants
+
+### Get restaurant by ID
+GET http://localhost:3000/api/restaurants/1
+
+### Filter restaurants by area
+GET http://localhost:3000/api/restaurants?area=Bole
+
+### Get nonexistent restaurant
+GET http://localhost:3000/api/restaurants/99
+
+### Create restaurant
+POST http://localhost:3000/api/restaurants
+Content-Type: application/json
+
+{
+  "name": "Sishu",
+  "area": "Kazanchis"
+}
+
+### Create restaurant with invalid data
+POST http://localhost:3000/api/restaurants
+Content-Type: application/json
+
+{
+  "name": "S",
+  "area": "Invalid"
+}
+
+### Get all dishes
+GET http://localhost:3000/api/dishes
+
+### Get dish by ID
+GET http://localhost:3000/api/dishes/1
+
+### Get nonexistent dish
+GET http://localhost:3000/api/dishes/99
+
+### Filter dishes by restaurant
+GET http://localhost:3000/api/dishes?restaurantId=1
+
+### Create dish
+POST http://localhost:3000/api/dishes
+Content-Type: application/json
+
+{
+  "restaurantId": 1,
+  "name": "Special Kitfo",
+  "priceSantim": 35000
+}
+
+### Create dish with invalid data
+POST http://localhost:3000/api/dishes
+Content-Type: application/json
+
+{
+  "restaurantId": 99,
+  "name": "A",
+  "priceSantim": -500
+}
