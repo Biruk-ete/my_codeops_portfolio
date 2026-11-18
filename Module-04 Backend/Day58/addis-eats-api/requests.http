@@ -1,0 +1,114 @@
+
+### Get all restaurants
+GET http://localhost:3000/api/v1/restaurants
+
+### Get restaurant by ID
+GET http://localhost:3000/api/v1/restaurants/1
+
+### Filter restaurants by area
+GET http://localhost:3000/api/v1/restaurants?area=Bole
+
+### Get open restaurants
+GET http://localhost:3000/api/v1/restaurants?isOpen=true
+
+### Get closed restaurants
+GET http://localhost:3000/api/v1/restaurants?isOpen=false
+
+### Get nonexistent restaurant
+GET http://localhost:3000/api/v1/restaurants/99
+
+### Create restaurant
+POST http://localhost:3000/api/v1/restaurants
+Content-Type: application/json
+
+{
+  "name": "Sishu",
+  "area": "Kazanchis"
+}
+
+### Create restaurant with invalid data
+POST http://localhost:3000/api/v1/restaurants
+Content-Type: application/json
+
+{
+  "name": "S",
+  "area": "Invalid"
+}
+
+### Get all dishes
+GET http://localhost:3000/api/v1/dishes
+
+### Get dish by ID
+GET http://localhost:3000/api/v1/dishes/1
+
+### Get nonexistent dish
+GET http://localhost:3000/api/v1/dishes/99
+
+### Filter dishes by restaurant
+GET http://localhost:3000/api/v1/dishes?restaurantId=1
+
+### Create dish
+POST http://localhost:3000/api/v1/dishes
+Content-Type: application/json
+
+{
+  "restaurantId": 1,
+  "name": "Special Kitfo",
+  "priceSantim": 35000
+}
+
+### Create dish with invalid data
+POST http://localhost:3000/api/v1/dishes
+Content-Type: application/json
+
+{
+  "restaurantId": 99,
+  "name": "A",
+  "priceSantim": -500
+}
+
+### Get all orders
+GET http://localhost:3000/api/v1/orders
+
+### Get orders with pagination
+GET http://localhost:3000/api/v1/orders?limit=5&offset=0
+
+### Filter orders by status
+GET http://localhost:3000/api/v1/orders?status=pending
+
+### Filter orders by area
+GET http://localhost:3000/api/v1/orders?area=Bole
+
+### Get pending orders with pagination
+GET http://localhost:3000/api/v1/orders?status=pending&limit=2
+
+### Get order by ID
+GET http://localhost:3000/api/v1/orders/1
+
+### Get orders for a restaurant
+GET http://localhost:3000/api/v1/restaurants/1/orders?limit=2
+
+### Get orders for nonexistent restaurant
+GET http://localhost:3000/api/v1/restaurants/99/orders
+
+### Update order status
+PATCH http://localhost:3000/api/v1/orders/1/status
+Content-Type: application/json
+
+{
+  "status": "confirmed"
+}
+
+### Update order with invalid status
+PATCH http://localhost:3000/api/v1/orders/1/status
+Content-Type: application/json
+
+{
+  "status": "cancelled"
+}
+
+### Delete an order
+DELETE http://localhost:3000/api/v1/orders/2
+
+### Delete nonexistent order
+DELETE http://localhost:3000/api/v1/orders/999
