@@ -48,4 +48,36 @@ describe('OrderService', () => {
       offset: 0,
     });
   });
+
+  it('should allow a valid status transition', () => {
+    const order: Order = {
+      id: 1,
+      customerName: 'Abebe Kebede',
+      area: 'Bole',
+      status: 'pending',
+      dishes: [{ name: 'Doro Wat', priceSantim: 24000 }],
+      totalSantim: 24000,
+    };
+
+    jest.mocked(repository.byId).mockReturnValue(order);
+
+    expect(service.updateStatus(1, 'confirmed').status).toBe('confirmed');
+  });
+
+  it('should reject an invalid status transition', () => {
+    const order: Order = {
+      id: 1,
+      customerName: 'Abebe Kebede',
+      area: 'Bole',
+      status: 'pending',
+      dishes: [{ name: 'Doro Wat', priceSantim: 24000 }],
+      totalSantim: 24000,
+    };
+
+    jest.mocked(repository.byId).mockReturnValue(order);
+
+    expect(() => service.updateStatus(1, 'delivered')).toThrow(
+      'Cannot transition order from pending to delivered',
+    );
+  });
 });

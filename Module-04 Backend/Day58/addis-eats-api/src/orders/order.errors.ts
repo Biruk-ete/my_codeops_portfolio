@@ -17,3 +17,16 @@ export class PaymentDeclinedError extends Error {
     Object.setPrototypeOf(this, PaymentDeclinedError.prototype);
   }
 }
+
+export class InvalidTransitionError extends Error {
+  constructor(
+    public readonly currentStatus: string,
+    public readonly requestedStatus: string,
+  ) {
+    super(
+      `Cannot transition order from ${currentStatus} to ${requestedStatus}`,
+    );
+    this.name = 'InvalidTransitionError';
+    Object.setPrototypeOf(this, InvalidTransitionError.prototype);
+  }
+}

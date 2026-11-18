@@ -229,7 +229,6 @@ All API errors use a consistent JSON response structure.
 | 402    | Payment Required      | Payment declined                 |
 | 404    | Not Found             | Resource does not exist          |
 | 409    | Conflict              | Business rule or state conflict  |
-| 422    | Unprocessable Entity  | Business rule validation failure |
 | 500    | Internal Server Error | Unexpected server error          |
 
 Internal server errors return a generic message. Sensitive implementation details are logged rather than exposed to clients.

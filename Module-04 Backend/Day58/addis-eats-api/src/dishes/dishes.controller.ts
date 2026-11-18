@@ -7,6 +7,8 @@ import {
   ParseIntPipe,
   Post,
   Query,
+  ValidationPipe,
+  UsePipes,
   Res,
 } from '@nestjs/common';
 import { DishesService } from './dishes.service';
@@ -19,6 +21,13 @@ import { FindDishesQuery } from './dto/find-dishes-query.dto';
 export class DishesController {
   constructor(private readonly dishesService: DishesService) {}
 
+  @UsePipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: false,
+      transform: true,
+    }),
+  )
   @Get()
   findAll(
     @Query('restaurantId') restaurantId?: string,
@@ -41,7 +50,13 @@ export class DishesController {
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.dishesService.findOne(id);
   }
-
+  @UsePipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
+  )
   @Post()
   create(
     @Body() dto: CreateDishDto,

@@ -7,7 +7,10 @@ import {
   Logger,
 } from '@nestjs/common';
 import type { Request, Response } from 'express';
-import { PaymentDeclinedError } from '../orders/order.errors';
+import {
+  PaymentDeclinedError,
+  InvalidTransitionError,
+} from '../orders/order.errors';
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
@@ -46,6 +49,9 @@ export class AllExceptionsFilter implements ExceptionFilter {
     } else if (exception instanceof PaymentDeclinedError) {
       status = HttpStatus.PAYMENT_REQUIRED;
       message = 'Payment declined';
+    } else if (exception instanceof InvalidTransitionError) {
+      status = HttpStatus.CONFLICT;
+      message = exception.message;
     }
 
     if (status >= 500) {

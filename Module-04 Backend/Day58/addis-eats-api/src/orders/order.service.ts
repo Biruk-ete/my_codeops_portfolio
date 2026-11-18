@@ -1,11 +1,19 @@
 import { Order, Area } from './order.types';
-import { OrderNotFoundError } from './order.errors';
+import { OrderNotFoundError, InvalidTransitionError } from './order.errors';
 import { ORDER_REPOSITORY } from './order.repository';
 import type { OrderRepository } from './order.repository';
 import { Injectable, Inject } from '@nestjs/common';
 import type { Page } from '../common/page.types';
 import { FindOrdersQuery } from './dto/find-orders-query.dto';
 import type { OrderStatus } from './order.types';
+
+const ALLOWED_TRANSITIONS: Record<OrderStatus, readonly OrderStatus[]> = {
+  pending: ['confirmed'],
+  confirmed: ['preparing'],
+  preparing: ['on_the_way'],
+  on_the_way: ['delivered'],
+  delivered: [],
+};
 
 @Injectable()
 export class OrderService {
@@ -87,6 +95,12 @@ export class OrderService {
 
   updateStatus(id: number, status: OrderStatus): Order {
     const order = this.find(id);
+
+    const allowedStatuses = ALLOWED_TRANSITIONS[order.status];
+
+    if (!allowedStatuses.includes(status)) {
+      throw new InvalidTransitionError(order.status, status);
+    }
 
     order.status = status;
 

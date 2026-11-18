@@ -22,6 +22,13 @@ import type { Response } from 'express';
 export class OrdersController {
   constructor(private readonly orderService: OrderService) {}
 
+  @UsePipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: false,
+      transform: true,
+    }),
+  )
   @Get()
   findAll(@Query() query: FindOrdersQuery) {
     return this.orderService.findAll(query);
@@ -50,6 +57,13 @@ export class OrdersController {
     this.orderService.remove(Number(id));
   }
 
+  @UsePipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
+  )
   @Post()
   create(
     @Body() createOrderDto: CreateOrderDto,

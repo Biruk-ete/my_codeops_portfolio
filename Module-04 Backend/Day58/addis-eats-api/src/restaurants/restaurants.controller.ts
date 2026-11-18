@@ -4,6 +4,8 @@ import {
   Get,
   Param,
   ParseIntPipe,
+  UsePipes,
+  ValidationPipe,
   Post,
   Query,
   Res,
@@ -25,11 +27,25 @@ export class RestaurantsController {
     private readonly orderService: OrderService,
   ) {}
 
+  @UsePipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: false,
+      transform: true,
+    }),
+  )
   @Get()
   findAll(@Query() query: FindRestaurantsQuery) {
     return this.restaurantsService.findAll(query);
   }
 
+  @UsePipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: false,
+      transform: true,
+    }),
+  )
   @Get(':id/dishes')
   findDishes(@Param('id', ParseIntPipe) id: number) {
     this.restaurantsService.findOne(id);
@@ -49,7 +65,13 @@ export class RestaurantsController {
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.restaurantsService.findOne(id);
   }
-
+  @UsePipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
+  )
   @Post()
   create(
     @Body() dto: CreateRestaurantDto,
