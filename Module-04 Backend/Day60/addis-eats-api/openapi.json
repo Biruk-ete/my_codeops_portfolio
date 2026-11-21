@@ -1,0 +1,843 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Welcome message returned successfully."
+          }
+        },
+        "summary": "Get API welcome message",
+        "tags": [
+          "app"
+        ]
+      }
+    },
+    "/orders": {
+      "get": {
+        "operationId": "OrdersController_findAll",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 50,
+              "default": 20,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 0,
+              "default": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "customerName",
+              "type": "string",
+              "enum": [
+                "customerName",
+                "area",
+                "status",
+                "-customerName",
+                "-area",
+                "-status"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Orders retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key."
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "Get all orders",
+        "tags": [
+          "orders"
+        ]
+      },
+      "post": {
+        "operationId": "OrdersController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Order created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid order data."
+          },
+          "401": {
+            "description": "Missing or invalid API key."
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "Create a new order",
+        "tags": [
+          "orders"
+        ]
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "operationId": "OrdersController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Order retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key."
+          },
+          "404": {
+            "description": "Order not found."
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "Get an order by ID",
+        "tags": [
+          "orders"
+        ]
+      },
+      "delete": {
+        "operationId": "OrdersController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Order deleted successfully."
+          },
+          "401": {
+            "description": "Missing or invalid API key."
+          },
+          "403": {
+            "description": "Staff role required."
+          },
+          "404": {
+            "description": "Order not found."
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "Delete an order",
+        "tags": [
+          "orders"
+        ]
+      }
+    },
+    "/orders/{id}/status": {
+      "patch": {
+        "operationId": "OrdersController_updateStatus",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStatusDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Order status updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid order status."
+          },
+          "401": {
+            "description": "Missing or invalid API key."
+          },
+          "404": {
+            "description": "Order not found."
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ],
+        "summary": "Update an order status",
+        "tags": [
+          "orders"
+        ]
+      }
+    },
+    "/restaurants": {
+      "get": {
+        "operationId": "RestaurantsController_findAll",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 50,
+              "default": 20,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 0,
+              "default": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "name",
+              "type": "string",
+              "enum": [
+                "name",
+                "area",
+                "-name",
+                "-area"
+              ]
+            }
+          },
+          {
+            "name": "area",
+            "required": false,
+            "in": "query",
+            "description": "Filter restaurants by area.",
+            "schema": {
+              "enum": [
+                "Bole",
+                "Kazanchis",
+                "Piassa",
+                "Megenagna"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Restaurants retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RestaurantResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid area or query parameters."
+          }
+        },
+        "summary": "Get all restaurants",
+        "tags": [
+          "restaurants"
+        ]
+      },
+      "post": {
+        "operationId": "RestaurantsController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRestaurantDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Restaurant created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestaurantResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid restaurant data."
+          }
+        },
+        "summary": "Create a new restaurant",
+        "tags": [
+          "restaurants"
+        ]
+      }
+    },
+    "/restaurants/{id}/dishes": {
+      "get": {
+        "operationId": "RestaurantsController_findDishes",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Restaurant dishes retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DishResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid restaurant ID."
+          },
+          "404": {
+            "description": "Restaurant not found."
+          }
+        },
+        "summary": "Get dishes for a restaurant",
+        "tags": [
+          "restaurants"
+        ]
+      }
+    },
+    "/restaurants/{id}/orders": {
+      "get": {
+        "operationId": "RestaurantsController_findOrders",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 50,
+              "default": 20,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 0,
+              "default": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "customerName",
+              "type": "string",
+              "enum": [
+                "customerName",
+                "area",
+                "status",
+                "-customerName",
+                "-area",
+                "-status"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Restaurant orders retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid restaurant ID or query parameters."
+          },
+          "404": {
+            "description": "Restaurant not found."
+          }
+        },
+        "summary": "Get orders for a restaurant",
+        "tags": [
+          "restaurants"
+        ]
+      }
+    },
+    "/restaurants/{id}": {
+      "get": {
+        "operationId": "RestaurantsController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Restaurant retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestaurantResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid restaurant ID."
+          },
+          "404": {
+            "description": "Restaurant not found."
+          }
+        },
+        "summary": "Get a restaurant by ID",
+        "tags": [
+          "restaurants"
+        ]
+      }
+    },
+    "/dishes": {
+      "get": {
+        "operationId": "DishesController_findAll",
+        "parameters": [
+          {
+            "name": "restaurantId",
+            "required": false,
+            "in": "query",
+            "description": "Filter dishes by restaurant ID.",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 50,
+              "default": 20,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 0,
+              "default": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "name",
+              "type": "string",
+              "enum": [
+                "name",
+                "priceSantim",
+                "-name",
+                "-priceSantim"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dishes retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DishResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid restaurant ID or query parameters."
+          }
+        },
+        "summary": "Get all dishes",
+        "tags": [
+          "dishes"
+        ]
+      },
+      "post": {
+        "operationId": "DishesController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDishDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Dish created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DishResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid dish data."
+          }
+        },
+        "summary": "Create a new dish",
+        "tags": [
+          "dishes"
+        ]
+      }
+    },
+    "/dishes/{id}": {
+      "get": {
+        "operationId": "DishesController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dish retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DishResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid dish ID."
+          },
+          "404": {
+            "description": "Dish not found."
+          }
+        },
+        "summary": "Get a dish by ID",
+        "tags": [
+          "dishes"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Addis Eats API",
+    "description": "Food delivery API for Addis Ababa. Monetary amounts are represented in santim, and phone numbers use TeleBirr format.",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "restaurants",
+      "description": "Restaurant resources"
+    },
+    {
+      "name": "dishes",
+      "description": "Menu and dish resources"
+    },
+    {
+      "name": "orders",
+      "description": "Customer order resources"
+    }
+  ],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "api-key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      }
+    },
+    "schemas": {
+      "OrderDishResponseDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "priceSantim": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "priceSantim"
+        ]
+      },
+      "OrderResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "customerName": {
+            "type": "string"
+          },
+          "area": {
+            "type": "string",
+            "enum": [
+              "Bole",
+              "Kazanchis",
+              "Piassa",
+              "Megenagna"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "confirmed",
+              "preparing",
+              "on_the_way",
+              "delivered"
+            ]
+          },
+          "dishes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderDishResponseDto"
+            }
+          },
+          "telebirrPhone": {
+            "type": "string"
+          },
+          "totalSantim": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "customerName",
+          "area",
+          "status",
+          "dishes",
+          "totalSantim"
+        ]
+      },
+      "UpdateStatusDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateOrderDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "RestaurantResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "area": {
+            "type": "string",
+            "enum": [
+              "Bole",
+              "Kazanchis",
+              "Piassa",
+              "Megenagna"
+            ]
+          },
+          "isOpen": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "area",
+          "isOpen"
+        ]
+      },
+      "DishResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "restaurantId": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "priceSantim": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "restaurantId",
+          "name",
+          "priceSantim"
+        ]
+      },
+      "CreateRestaurantDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateDishDto": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  }
+}
